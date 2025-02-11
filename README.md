@@ -15,13 +15,25 @@ Este script en Python descarga archivos CRX comprimidos de datos GNSS (Global Na
 * Python 3.x
 * Librerías `requests` y `pathlib` (se pueden instalar con  `pip install requests pathlib`)
 * Credenciales de Earthdata
+* Crea un archivo llamado .netrc y guardalo en el home (carpeta de usuario de windows) el archivo debe contener la siguiente información:
+```bash
+machine urs.earthdata.nasa.gov
+login tu_usuario_earthdata
+password tu_contraseña_earthdata
+```
+* Variables de entorno:
+Define las variables de entorno del sistema EARTHDATA_USERNAME y EARTHDATA_PASSWORD con tus credenciales.
+* Ruta de descarga: Modifica la variable LOCAL_FOLDER en el script para especificar la carpeta local donde se guardarán los archivos descargados.
 
 ## Instalación
 
-1. Clona este repositorio: `git clone https://github.com/tu_usuario/descarga-datos-gnss.git`
+1. Clona este repositorio: `git clone https://github.com/icqmula/descarga_datos_IGS.git`
 2. Instala las librerías necesarias: `pip install requests pathlib`
 
 ## Uso
 
 ```bash
 python descarga_datos_IGS.py
+```
+
+
