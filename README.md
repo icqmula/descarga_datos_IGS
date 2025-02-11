@@ -1,54 +1,27 @@
-# Descarga Datos GNSS IGS
+# Descarga de Datos GNSS de la Red IGS
 
-Este script en Python descarga archivos CRX comprimidos de datos GNSS de la red IGS desde el servidor de la NASA (https://cddis.nasa.gov/) a una carpeta local.
+Este script en Python descarga archivos CRX comprimidos de datos GNSS (Global Navigation Satellite System) de la red IGS (International GNSS Service) desde el servidor de la NASA (CDDIS) a una carpeta local.  Estos datos son utilizados en geodesia, geof√≠sica y otras aplicaciones cient√≠ficas para obtener informaci√≥n precisa sobre la posici√≥n de puntos en la Tierra.
 
-**IMPORTANTE:** El CDDIS migrar· su sitio web de cddis.nasa.gov a earthdata.nasa.gov entre febrero y junio de 2025. Las URLs en este script deber·n ser actualizadas a partir de la fecha de migraciÛn. Para m·s detalles, consulta: https://cddis.nasa.gov/Web_Unification.html
+## Caracter√≠sticas
 
-Este script utiliza credenciales de Earthdata para acceder y descargar los archivos. Se recomienda configurar las credenciales en un archivo `.netrc` por seguridad.
+* Descarga de datos de estaciones CORS (Continuously Operating Reference Stations) de la red IGS.
+* Soporte para estaciones con diferentes frecuencias de registro (15 segundos y 30 segundos).
+* Autenticaci√≥n con credenciales de Earthdata.
+* Verificaci√≥n de la integridad de los archivos descargados.
+* Reintentos autom√°ticos en caso de errores de descarga.
 
-## Autor
+## Requisitos
 
-Ignacio Parada P.
+* Python 3.x
+* Librer√≠as `requests` y `pathlib` (se pueden instalar con  `pip install requests pathlib`)
+* Credenciales de Earthdata
 
-## Fecha de CreaciÛn
+## Instalaci√≥n
 
-11 de febrero de 2025
-
-## LibrerÌas
-
-- requests
-- pathlib
-- datetime
+1. Clona este repositorio: `git clone https://github.com/tu_usuario/descarga-datos-gnss.git`
+2. Instala las librer√≠as necesarias: `pip install requests pathlib`
 
 ## Uso
 
 ```bash
 python descarga_datos_IGS.py
-
-
-Requisitos
-Python 3.x
-LibrerÌas listadas en "LibrerÌas" (se pueden instalar con pip install requests)
-Credenciales de Earthdata configuradas en un archivo .netrc
-
-ConfiguraciÛn
-Credenciales de Earthdata:
-
-Crea un archivo .netrc en tu directorio home (o donde tu sistema lo requiera).
-AÒade las siguientes lÌneas, reemplazando tu_usuario_earthdata y tu_contraseÒa_earthdata con tus credenciales reales:
-machine cddis.nasa.gov
-login tu_usuario_earthdata
-password tu_contraseÒa_earthdata
-Ruta de Descarga:
-
-Modifica la variable LOCAL_FOLDER en el script para especificar la carpeta local donde se guardar·n los archivos descargados.
-Estaciones CORS:
-
-Las listas cors_15seg y cors_30seg contienen ejemplos de estaciones CORS. Debes reemplazarlas con las estaciones reales que deseas descargar.
-Funcionamiento
-El script realiza los siguientes pasos:
-
-Calcula la fecha de descarga restando 40 dÌas a la fecha actual (este valor se puede modificar).
-Genera las URLs de los archivos CRX para las estaciones CORS especificadas.
-Crea la carpeta local si no existe.
-Descarga los archivos CRX, verificando su integridad y reintentando la descarga en caso de errores.
