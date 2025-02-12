@@ -5,7 +5,7 @@ Este script en Python descarga archivos CRX comprimidos de datos GNSS (Global Na
 ## Características
 
 * Descarga de datos de estaciones CORS (Continuously Operating Reference Stations) de la red IGS.
-* Soporte para estaciones con diferentes frecuencias de registro (15 segundos y 30 segundos).
+* Soporte para archivos diarios de estaciones con diferentes frecuencias de registro (15 segundos y 30 segundos).
 * Autenticación con credenciales de Earthdata.
 * Verificación de la integridad de los archivos descargados.
 * Reintentos automáticos en caso de errores de descarga.
